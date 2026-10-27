@@ -14,7 +14,7 @@
  * EXPERIMENTAL SOFTWARE — use at your own risk. No warranty. You are responsible for
  * licence compliance, band edges, and RF filtering.
  *
- * !! BEFORE TX: set CALLSIGN and LOCATOR to your licensed call and grid. Example N0TOK/XX00 is fictional —
+ * !! BEFORE TX: set CALLSIGN and LOCATOR to your licensed call and grid. Example QQ0QQ/XX00 is fictional —
  * !! never transmit with the example identity on air. Regenerate jtty_tones.h if you change the call.
  *
  * !! The board most likely has NO low-pass filter (upstream PCB 2.0 has none). Fit an external
@@ -32,7 +32,7 @@
 #include "jtty_tones.h"
 
 // ============================ USER CONFIG ============================
-#define CALLSIGN          "N0TOK"
+#define CALLSIGN          "QQ0QQ"
 #define LOCATOR           "XX00"
 // 1 = standard FT8 CQ (type 1, decoders parse call+grid, PSK Reporter spots it) - recommended.
 // 0 = JTEncode ft8_encode() free text "CQ " CALLSIGN " " LOCATOR (decodes as text only; no spots). FT4 needs 1.

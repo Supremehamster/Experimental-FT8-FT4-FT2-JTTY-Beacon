@@ -4,8 +4,8 @@
 
 Presently configured as a **quad-band, quad-mode** experimental CQ beacon (**FT8, FT4, FT2, and JTTY**) for common AliExpress / Banggood **WSPR beacon** clones (Arduino Nano ATmega328P, Si5351, GPS). Bands: 40 / 20 / 15 / 10 m.
 
-Example identity in this package is the **fictional** callsign **N0TOK** and locator **XX00**.  
-**Do not transmit with N0TOK/XX00 on air.** Edit `CALLSIGN` and `LOCATOR` at the top of the sketch to your licensed call and Maidenhead grid **before** you flash or key RF.
+Example identity in this package is the **fictional** callsign **QQ0QQ** and locator **XX00**.  
+**Do not transmit with QQ0QQ/XX00 on air.** Edit `CALLSIGN` and `LOCATOR` at the top of the sketch to your licensed call and Maidenhead grid **before** you flash or key RF.
 
 ## Safety (read first)
 
@@ -24,7 +24,7 @@ Example identity in this package is the **fictional** callsign **N0TOK** and loc
    python3 extras/encode_jtty.py YOURCALL
    ```
    That overwrites `jtty_tones.h` next to the sketch.
-4. Never leave the example `N0TOK` / `XX00` in a radio that can radiate.
+4. Never leave the example `QQ0QQ` / `XX00` in a radio that can radiate.
 
 Full step-by-step flash and config notes: **[USER_GUIDE.md](USER_GUIDE.md)**.
 
@@ -76,4 +76,4 @@ Sketch-only release (no PC companion tools).
 
 ## Licence
 
-See `LICENSE`. Example callsign **N0TOK** is fictional and for documentation only.
+See `LICENSE`. Example callsign **QQ0QQ** is fictional and for documentation only.

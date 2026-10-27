@@ -1,6 +1,6 @@
 # FT8_Beacon v4.9 — Release notes
 
-**EXPERIMENTAL — use at your own risk.** No warranty. Fit a proper **external low-pass filter (LPF) per band** before any antenna use (clone boards typically have none). Bench-test into a **dummy load**. Edit `CALLSIGN` / `LOCATOR` away from the fictional example **N0TOK** / **XX00** before transmitting.
+**EXPERIMENTAL — use at your own risk.** No warranty. Fit a proper **external low-pass filter (LPF) per band** before any antenna use (clone boards typically have none). Bench-test into a **dummy load**. Edit `CALLSIGN` / `LOCATOR` away from the fictional example **QQ0QQ** / **XX00** before transmitting.
 
 ## What’s in v4.9
 
@@ -12,7 +12,8 @@
 
 ## Breaking / operator notes vs earlier private builds
 
-- Shipped example identity is **N0TOK** / **XX00** (fictional). You must set your own call and grid and regenerate JTTY tones.
+- Shipped example identity is **QQ0QQ** / **XX00** (fictional). You must set your own call and grid and regenerate JTTY tones.
+- Example callsign was updated from a previously used placeholder to fictional **QQ0QQ** / **XX00** (not for on-air use).
 - Sketch-only package (no PC follower / companion tools).
 - JTTY dials are preliminary (7090 / 14090 / 21090 / 28090 kHz pattern); verify locally.
 

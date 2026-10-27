@@ -1,7 +1,7 @@
 // ft8_std.h - FT8 and FT4 encoder for a standard "CQ <call> <grid4>" message (type i3=1).
 //
 // Why this file exists: Etherkit JTEncode's public ft8_encode() only packs FREE TEXT
-// (type 0.0), and JTEncode 1.3.1 has no FT4 encoder at all. "CQ N0TOK XX00" fits in 13 chars,
+// (type 0.0), and JTEncode 1.3.1 has no FT4 encoder at all. "CQ QQ0QQ XX00" fits in 13 chars,
 // so free text decodes and shows the same words, but decoders do not treat it as a real CQ.
 // WSJT-X/MSHV do not parse a callsign or grid from it, so PSK Reporter gets no spots. This file
 // packs a proper standard message following the WSJT-X 77-bit protocol and uses the same LDPC
@@ -24,13 +24,13 @@ static int8_t idx(const char *set, char ch) {
   return (p && ch) ? (int8_t)(p - set) : -1;
 }
 
-// pack28 for a standard callsign (e.g. N0TOK, K1ABC, 9A1AA). Returns -1 if unsupported.
+// pack28 for a standard callsign (e.g. QQ0QQ, K1ABC, 9A1AA). Returns -1 if unsupported.
 static int32_t packCall(const char *call) {
   char c6[7] = "      ";
   uint8_t n = strlen(call);
   if (n < 3 || n > 6) return -1;
   if (call[2] >= '0' && call[2] <= '9') memcpy(c6, call, n);                    // 3rd char digit, e.g. "KA1ABC", "9A1AA"
-  else if (call[1] >= '0' && call[1] <= '9' && n <= 5) memcpy(c6 + 1, call, n); // e.g. "N0TOK" -> " N0TOK"
+  else if (call[1] >= '0' && call[1] <= '9' && n <= 5) memcpy(c6 + 1, call, n); // e.g. "QQ0QQ" -> " QQ0QQ"
   else return -1;
   static const char A1[] = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   static const char A2[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";

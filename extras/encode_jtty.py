@@ -16,9 +16,9 @@ Golden checks (mfsk-core crc/tbcc unit tests):
   - TBCC path closes; all-zero info → all-zero data tones
 
 Usage:
-  python3 encode_jtty.py N0TOK              # positional call (preferred)
-  python3 encode_jtty.py --call N0TOK       # same
-  python3 encode_jtty.py --stdout N0TOK     # C array only
+  python3 encode_jtty.py QQ0QQ              # positional call (preferred)
+  python3 encode_jtty.py --call QQ0QQ       # same
+  python3 encode_jtty.py --stdout QQ0QQ     # C array only
   python3 encode_jtty.py --out path.h CALL  # write header to path
 """
 from __future__ import annotations
@@ -99,7 +99,7 @@ def tbcc_encode(info: list[int]) -> list[int]:
     return tones
 
 
-def encode_frame(call: str = "N0TOK") -> list[int]:
+def encode_frame(call: str = "QQ0QQ") -> list[int]:
     payload = payload_cq_call_cq(call, eom=True)
     info = append_crc(payload)
     if crc12_remainder(info) != 0:
@@ -110,12 +110,12 @@ def encode_frame(call: str = "N0TOK") -> list[int]:
     return frame, payload, info, data
 
 
-# Fixed golden vector for example callsign action "CQ N0TOK CQ" (pack28=0xa4cb6e).
+# Fixed golden vector for example callsign action "CQ QQ0QQ CQ" (pack28=0xc151090).
 # Regenerate intentionally if protocol docs change.
-N0TOK_GOLDEN = [
+QQ0QQ_GOLDEN = [
     0, 2, 2, 3, 0, 0, 3, 2, 1, 3, 1, 2, 0,
-    3, 0, 0, 2, 1, 0, 3, 1, 1, 0, 2, 0, 1, 0, 2, 2, 1, 3, 2, 3, 3, 1, 2, 0,
-    1, 2, 3, 2, 1, 0, 0, 2, 3, 1, 2, 1, 3, 2, 3, 1, 2, 0, 1, 1, 1, 3,
+    1, 1, 2, 1, 0, 3, 0, 0, 2, 3, 1, 3, 1, 3, 2, 2, 3, 1, 2, 2, 2, 1, 2, 3,
+    2, 0, 2, 3, 3, 0, 0, 1, 2, 2, 1, 1, 0, 0, 3, 0, 3, 2, 2, 3, 0, 3,
 ]
 
 
@@ -125,16 +125,16 @@ def self_test() -> None:
     p[33] = 1
     assert crc12_remainder(p) == POLY
     assert tbcc_encode([0] * 46) == [0] * 46
-    frame, payload, info, data = encode_frame("N0TOK")
+    frame, payload, info, data = encode_frame("QQ0QQ")
     assert crc12_remainder(info) == 0
     assert len(frame) == 59
-    n28 = pack28("N0TOK")
-    assert n28 == 0xA4CB6E, hex(n28)
-    assert frame == N0TOK_GOLDEN, (frame, N0TOK_GOLDEN)
-    print(f"self_test OK: CRC unit tests, TBCC zero, N0TOK golden (pack28=0x{n28:x})")
+    n28 = pack28("QQ0QQ")
+    assert n28 == 0xC151090, hex(n28)
+    assert frame == QQ0QQ_GOLDEN, (frame, QQ0QQ_GOLDEN)
+    print(f"self_test OK: CRC unit tests, TBCC zero, QQ0QQ golden (pack28=0x{n28:x})")
 
 
-def emit_header(frame: list[int], path: str, call: str = "N0TOK") -> None:
+def emit_header(frame: list[int], path: str, call: str = "QQ0QQ") -> None:
     lines = [
         "/*",
         " * jtty_tones.h — precomputed JTTY channel symbols for callsign action",
@@ -167,12 +167,12 @@ def emit_header(frame: list[int], path: str, call: str = "N0TOK") -> None:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Encode JTTY callsign-action CQ <call> CQ tones")
-    ap.add_argument("call_pos", nargs="?", default="", help="Callsign (e.g. N0TOK)")
+    ap.add_argument("call_pos", nargs="?", default="", help="Callsign (e.g. QQ0QQ)")
     ap.add_argument("--call", default="", help="Callsign (alternative to positional)")
     ap.add_argument("--stdout", action="store_true")
     ap.add_argument("--out", default="")
     args = ap.parse_args()
-    call = (args.call_pos or args.call or "N0TOK").upper()
+    call = (args.call_pos or args.call or "QQ0QQ").upper()
     self_test()
     frame, payload, info, data = encode_frame(call)
     n28 = pack28(call)

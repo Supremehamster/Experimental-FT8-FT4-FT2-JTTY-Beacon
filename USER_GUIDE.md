@@ -9,7 +9,7 @@ This release is presently set up as a **quad-band, quad-mode** beacon: **FT8, FT
 1. Open `FT8_Beacon_v4_9.ino` in a text editor or the Arduino IDE.
 2. Near the top, change:
    ```c
-   #define CALLSIGN          "N0TOK"   // <- your licensed call
+   #define CALLSIGN          "QQ0QQ"   // <- your licensed call
    #define LOCATOR           "XX00"    // <- your 4-char Maidenhead grid
    ```
 3. If you changed `CALLSIGN`, regenerate JTTY tones (JTTY does not read the macro at run time — tones are baked into `jtty_tones.h`):
@@ -17,7 +17,7 @@ This release is presently set up as a **quad-band, quad-mode** beacon: **FT8, FT
    python3 extras/encode_jtty.py YOURCALL
    ```
    Run that from the sketch folder (or pass `--out jtty_tones.h`). Confirm the header comment says `CQ YOURCALL CQ`.
-4. **Never transmit** with the example identity **N0TOK / XX00**. It is fictional and shipped only so the sketch compiles out of the box.
+4. **Never transmit** with the example identity **QQ0QQ / XX00**. It is fictional and shipped only so the sketch compiles out of the box.
 
 FT8 / FT4 / FT2 already use the `CALLSIGN` / `LOCATOR` macros, so after you edit them the on-air CQ becomes `CQ <yourcall> <yourgrid>`.
 
@@ -103,7 +103,7 @@ python3 extras/encode_jtty.py YOURCALL
 python3 extras/encode_jtty.py --call YOURCALL --out jtty_tones.h
 ```
 
-The script runs CRC-12 and TBCC self-checks, then writes `jtty_tones.h`. Example packaged tones are for **N0TOK** only.
+The script runs CRC-12 and TBCC self-checks, then writes `jtty_tones.h`. Example packaged tones are for **QQ0QQ** only.
 
 ## 7. If something goes wrong
 
