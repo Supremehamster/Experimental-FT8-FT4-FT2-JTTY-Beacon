@@ -69,7 +69,7 @@ Cycle length **240 s** (`TX_INTERVAL_S`):
 |------------|------|--------|
 | :00, :04, :08… | FT8 | Standard CQ when `FT8_STANDARD_MSG=1` |
 | :01, :05, :09… | FT2 | MSHV / Decodium-style dials |
-| :02, :06, :10… | FT4 | |
+| :02, :06, :10… | FT4 | Standard CQ when `FT8_STANDARD_MSG=1`; dials 7047.5 / 14080 / 21140 / 28180 kHz |
 | :03, :07, :11… | JTTY | Short ~1.9 s frame; dials 7090 / 14090 / 21090 / 28090 kHz |
 
 Verify:
