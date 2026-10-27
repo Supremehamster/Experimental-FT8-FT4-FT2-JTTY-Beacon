@@ -1,0 +1,15 @@
+FT8_Beacon example firmware
+
+EXPERIMENTAL SOFTWARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+USE AT YOUR OWN RISK. You are responsible for compliance with amateur
+radio regulations, band edges, and fitting appropriate RF filtering
+(external low-pass filters) before connecting an antenna.
+
+The example callsign N0TOK and locator XX00 are fictional and must not
+be transmitted on the air.
+
+Permission is granted to use, copy, modify, and distribute this example
+firmware for amateur radio experimentation, provided this notice and the
+safety warnings in README.md / USER_GUIDE.md are retained.
