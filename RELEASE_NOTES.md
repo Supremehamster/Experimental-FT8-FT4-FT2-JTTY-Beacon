@@ -20,3 +20,7 @@
 
 - PC-side followers, personal paths, or operator-specific tooling.
 - Guarantees of on-air legality without your LPF, licence, and band checks.
+
+## Docs
+
+- README and USER_GUIDE now require a firmware backup before flash: keep the previous `.ino` or known-good hex, or dump the Nano (ATmega328P) flash with `avrdude`, because upload overwrites the image already on the board.

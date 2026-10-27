@@ -49,16 +49,17 @@ Confirm your pinout matches the sketch defaults (GPS on D3/D4, LEDs on D8/D9/D10
 
 ## 3. How to flash with the Arduino IDE
 
-1. Install the [Arduino IDE](https://www.arduino.cc/en/software).
-2. **Tools → Board → Arduino AVR Boards → Arduino Nano**.
-3. **Tools → Processor → ATmega328P**.  
+1. **Back up the firmware already on the board before you upload.** Flashing this sketch overwrites whatever is on the Nano (ATmega328P). Keep a copy of the previous sketch (`.ino`) or a known-good `.hex` if you want to restore it. If you know how, dump the current flash with `avrdude` and save that file before you upload. If you skip the backup, the old image is gone.
+2. Install the [Arduino IDE](https://www.arduino.cc/en/software).
+3. **Tools → Board → Arduino AVR Boards → Arduino Nano**.
+4. **Tools → Processor → ATmega328P**.  
    - If upload fails with “not in sync” / stk500 errors, try **ATmega328P (Old Bootloader)** (57600 baud bootloader) vs the newer Nano bootloader (115200).
-4. Install the three libraries above (**Sketch → Include Library → Manage Libraries…**).
-5. **File → Open…** and select `FT8_Beacon_v4_9.ino` (folder name should match the `.ino` name).
-6. Set **CALLSIGN** / **LOCATOR**; regenerate JTTY if the call changed (section 0).
-7. Plug in the board over USB. **Tools → Port** → choose the port (examples only: `COM3` on Windows, `/dev/ttyUSB0` or `/dev/ttyACM0` on Linux/macOS). Your port number will differ.
-8. Click **Upload**. Wait for “Done uploading”.
-9. Open **Tools → Serial Monitor** at **9600** baud. You should see a banner including your call/locator and mode list, then GPS lock messages. **No TX until GPS is stable** (by design).
+5. Install the three libraries above (**Sketch → Include Library → Manage Libraries…**).
+6. **File → Open…** and select `FT8_Beacon_v4_9.ino` (folder name should match the `.ino` name).
+7. Set **CALLSIGN** / **LOCATOR**; regenerate JTTY if the call changed (section 0).
+8. Plug in the board over USB. **Tools → Port** → choose the port (examples only: `COM3` on Windows, `/dev/ttyUSB0` or `/dev/ttyACM0` on Linux/macOS). Your port number will differ.
+9. Click **Upload**. Wait for “Done uploading”.
+10. Open **Tools → Serial Monitor** at **9600** baud. You should see a banner including your call/locator and mode list, then GPS lock messages. **No TX until GPS is stable** (by design).
 
 ## 4. On-air schedule
 

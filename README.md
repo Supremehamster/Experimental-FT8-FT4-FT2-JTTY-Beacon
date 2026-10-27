@@ -53,11 +53,12 @@ Decode: **MSHV** for FT8/FT2/FT4; **WSJT-X 3.3 beta** for JTTY
 
 ## Quick flash (Arduino IDE)
 
-1. Install Arduino IDE; select board **Arduino Nano** (ATmega328P).
-2. Install the three libraries above (Library Manager).
-3. Open `FT8_Beacon_v4_9.ino`; set callsign/locator; regenerate JTTY if needed.
-4. Tools → Port → your port (e.g. `COM3` on Windows, `/dev/ttyUSB0` on Linux — placeholder only).
-5. Upload. If you get “not in sync”, try **Tools → Processor → ATmega328P (Old Bootloader)** (57600) vs the newer bootloader (115200).
+1. **Back up the firmware already on the board before you upload.** Flashing this sketch overwrites whatever is on the Nano (ATmega328P). Keep a copy of the previous sketch (`.ino`) or a known-good `.hex` if you want to restore it. If you know how, dump the current flash with `avrdude` and save that file before you upload. If you skip the backup, the old image is gone.
+2. Install Arduino IDE; select board **Arduino Nano** (ATmega328P).
+3. Install the three libraries above (Library Manager).
+4. Open `FT8_Beacon_v4_9.ino`; set callsign/locator; regenerate JTTY if needed.
+5. Tools → Port → your port (e.g. `COM3` on Windows, `/dev/ttyUSB0` on Linux — placeholder only).
+6. Upload. If you get “not in sync”, try **Tools → Processor → ATmega328P (Old Bootloader)** (57600) vs the newer bootloader (115200).
 
 ## Config knobs
 
