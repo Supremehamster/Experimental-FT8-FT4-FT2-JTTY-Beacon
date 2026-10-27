@@ -4,6 +4,7 @@
 
 ## What’s in v4.9
 
+- Docs: optional antenna note — 7 MHz EFHW (e.g. QRPGuys NoTune EFHW) covers 40/20/15/10 m without an ATU; LPF still required.
 - Presently a **quad-band, quad-mode** GPS-timed CQ beacon: **FT8** (:00), **FT2** (:01), **FT4** (:02), **JTTY** (:03) on 40 / 20 / 15 / 10 m (240 s cycle).
 - Standard FT8/FT4 type-1 CQ via `ft8_std.h` (PSK Reporter–friendly when enabled).
 - FT2 uses the same packed symbols as FT4 with FT2 framing/timing for MSHV-style dials.

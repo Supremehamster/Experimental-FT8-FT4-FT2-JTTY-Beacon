@@ -15,6 +15,10 @@ Example identity in this package is the **fictional** callsign **QQ0QQ** and loc
 4. Stay inside your country’s band allocations and power limits.
 5. This firmware is experimental; timing, dials (especially JTTY), and JTTY hard-FSK behaviour may change.
 
+## Antenna note (optional)
+
+An **end-fed half-wave (EFHW)** cut/tuned for **7 MHz** (40 m fundamental) is resonant on the even harmonics as well, so the same wire covers **40 / 20 / 15 / 10 m** without an ATU. A practical QRP option is the **[QRPGuys NoTune EFHW](https://qrpguys.com/antennas)** — no tuner needed once the wire is sized for 7 MHz. You still need a **proper LPF for each band** before the antenna; the EFHW does not replace filtering.
+
 ## Before you flash
 
 1. Open `FT8_Beacon_v4_9.ino`.

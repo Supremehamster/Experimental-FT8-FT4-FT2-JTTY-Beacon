@@ -29,6 +29,12 @@ FT8 / FT4 / FT2 already use the `CALLSIGN` / `LOCATOR` macros, so after you edit
 - Stay inside band edges and power limits for your licence class and country.
 - This project is **experimental**; treat dials (especially JTTY), start delays, and JTTY hard-FSK as subject to change.
 
+## 1a. Antenna note (optional)
+
+For a single-wire multi-band setup with this quad-band schedule, an **end-fed half-wave (EFHW)** tuned to **7 MHz** (40 m) is resonant on **20 / 15 / 10 m** as well (even harmonics), so one antenna covers all four bands **without an ATU**. The **QRPGuys NoTune EFHW** is a common QRP match for that approach. Fit the wire for 7 MHz once; no tuner in the line after that.
+
+This does **not** remove the need for an **external LPF per band** before the antenna — harmonics from the board still need filtering.
+
 ## 2. Hardware
 
 Typical target: AliExpress / Banggood **WSPR beacon** clone based on:
